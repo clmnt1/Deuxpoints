@@ -1,22 +1,228 @@
+@CHARSET "UTF-8";
+
+body{
+	max-width: 100%;
+	margin: 0 auto;
+	background-color: #E7E7E7;
+	font-family: arial;
+}
+
+a{
+	text-decoration: none;
+	color: #B9B9B9;
+}
+a:hover{
+	color: #FE8B6E;
+}
+
+ul{
+	list-style: none;
+	padding: 0;
+}
+
+a.caption-link{
+	text-decoration: none;
+	color: #FFFFFF;
+}
+a.caption-link:hover{
+	color: #B9B9B9;
+}
+
+#header-fixed{
+	z-index: 100;
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+#header-fixed ul li{
+	display: inline-block;
+	margin: 0 5px;
+}
+
+#header-default{
+	margin-bottom: 50px;
+}
+
+#header-default ul li{
+	display: inline-block;
+	margin: 0 15px;
+}
+
+.header-content{
+	border-top: 1px solid #FE8B6E;
+	border-bottom: 2px solid #B9B9B9;
+	background-color: #FFFFFF;
+	position: relative;
+}
+
+.header-content>div{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.header-title{
+	width: 350px;
+	background-color: #FE8B6E;
+	color: #FFFFFF;
+}
+
+.header-nav{
+	
+}
+
+.header-nav .nav-cat{
+	cursor: pointer;
+}
+.header-nav>ul{
+	display: inline-block;
+	margin-top: 30px;
+}
+
+.right{
+	position: absolute;
+	right: 5px;
+}
+
+.navbar-popup{
+	height: 50px;
+	padding-left: 350px;
+	background-color: #646464;
+}
+
+.navbar-popup ul{
+	margin: 0;
+}
+
+.navbar-popup ul li{
+	margin-top: 15px !important;
+}
+
+/* ///////////////////////////////////////////////////////// */
+/* ///////////////////////SLIDER//////////////////////////// */
+/* ///////////////////////////////////////////////////////// */
+
+/*///////////// Slide */
+.slider_container{
+	position: relative;
+	width: 100%;
+	height: 550px;
+	margin: 0 auto;
+	overflow: hidden;
+	background-color: #EEEEEE;
+}
+.slider{
+	width: 15000px;
+	height: 100%;
+	position: absolute;
+}
+.slider a{
+	width: 900px;
+	height: 100%;
+	display: inline-block;
+	vertical-align: top;
+	margin: 0;
+	padding: 0;
+}
+
+/*///////////// Slider-caption */
+
+.slider-caption{
+	position: relative;
+	width: 420px;
+	height: 400px;
+	margin: 0 auto;
+	text-align: center;
+	color: #FFFFFF;
+}
 
 
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
+.slider-caption h1{
+	font-size: 100px;
+}
 
+/*///////////// Buttons */
+.prev, .next{
+	position: absolute;
+	top: 45%;
+	height: 65px;
+	width: 30px;
+	
+}
+.prev{
+	left: 50px;
+	cursor: pointer;
+	background: url('../img/prev.png') -3px no-repeat;
+}
+.prev:hover{
+	background: url('../img/prev.png') -35px 0 no-repeat;
+}
+.next{
+	right: 50px;
+	cursor: pointer;
+	background: url('../img/next.png') -5px no-repeat;
+}
+.next:hover{
+	background: url('../img/next.png') -37px 0 no-repeat;
+}
 
+/*//////////// Puces */
+.steps{
+	position: absolute;
+	bottom: 0;
+	right: 100px;
+}
+.steps ul{
+	list-style: none;
+}
+#header-default .steps ul li{
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	margin: 0 5px;
+	cursor: pointer;
+	background: url('../img/puce.png') center no-repeat;
+}
 
+body #header-default .active{
+	background: url('../img/puce_active.png') center no-repeat !important;
+}
 
+/* ///////////////////////////////////////////////////////// */
+/* ///////////////////////CONTENT/////////////////////////// */
+/* ///////////////////////////////////////////////////////// */
 
+#masonry-bloc{
+  margin: 0 auto;
+}
 
+.bloc{
+	position: relative;
+	margin: 5px;
+}
 
+.bloc .imgover{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
 
+.bloc .caption{
+	position: absolute;
+	top: 25%;
+	left: 40%;
+	color: white;
+}
 
+/* ///////////////////////////////////////////////////////// */
+/* ///////////////////////FOOTER//////////////////////////// */
+/* ///////////////////////////////////////////////////////// */
 
+#footer #footer-menu>ul li:first-child{
+	color: #B9B9B9;
+}
 
-
-
-
-
-
-
+#footer ul li{
+	display: inline-block;
+	margin: 0 5px;
+}

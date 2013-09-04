@@ -18,13 +18,13 @@ class Dispatcher{
 	
 	public function setView(View $view)
 	{
-		$this->view = $views;
+		$this->view = $view;
 	}
 	
 	public function dispatch(){
 		$controllerName = $this->request->getControllerName();
 		$controllerClassname = ucfirst($controllerName) . 'Controller';
-		$controllerName = $controllerClassname . '.php';
+		$controllerFilename = $controllerClassname . '.php';
 		
 		// Instancie le controller
 		require_once APP_PATH . DS . 'controller' . DS . $controllerFilename;

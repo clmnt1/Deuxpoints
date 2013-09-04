@@ -26,6 +26,10 @@ class Router
 		$uri = trim($uri, '/'); // On enlève les "/" sur les bords de la chaîne
 		$uri  = explode('/', $uri); // On explose la chaîne à chaque "/" et on stocke le résultat dans un tableau
 		
+		if($uri[0] == ''){
+			$uri[0] = 'index';
+		}
+		
 		$controller = strtolower($uri[0]);
 		
 		array_shift($uri); // Enlève le premier élément du tableau
