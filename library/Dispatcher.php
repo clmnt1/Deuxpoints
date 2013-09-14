@@ -5,6 +5,7 @@ class Dispatcher{
 	private $request;
 	private $response;
 	private $view;
+	private $product;
 	
 	public function setRequest(Request $request)
 	{
@@ -21,6 +22,11 @@ class Dispatcher{
 		$this->view = $view;
 	}
 	
+	public function setProduct(Product $product)
+	{
+		$this->product = $product;
+	}
+	
 	public function dispatch(){
 		$controllerName = $this->request->getControllerName();
 		$controllerClassname = ucfirst($controllerName) . 'Controller';
@@ -28,7 +34,7 @@ class Dispatcher{
 		
 		// Instancie le controller
 		require_once APP_PATH . DS . 'controller' . DS . $controllerFilename;
-		$controller = new $controllerClassname($this->request, $this->response, $this->view); // Instancie une class dont le nom est contenu dans une variable. Ici, $controllerClassname() = .
+		$controller = new $controllerClassname($this->request, $this->response, $this->view, $this->product); // Instancie une class dont le nom est contenu dans une variable. Ici, $controllerClassname() = .
 		$controller->process();
 	}
 	

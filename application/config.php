@@ -1,7 +1,7 @@
 <?php 
 		$db = array(
 			'host' => 'localhost',
-			'user' => 'root',
+			'user' => 'deuxpoints',
 			'password' => '0000',
-			'base' => 'app2',
+			'base' => 'deuxpoints',
 		);

@@ -1,1 +1,12 @@
-<p>Catégorie</p>
+<div id="masonry-bloc">
+		    	<div class="banner bloc">
+		    		<img id="img" src="./img/item.jpg" alt="" width="250" height="714" />
+		    	</div>
+			   	<?php $cats = array('bijoux','objet','papeterie'); for ($i=0 ; $i<20; $i++): $h = rand(150,300); ?>
+			   	<div class="bloc <?php echo $cats[$i%3];?>">
+			   		<img id="img" src="./img/item.jpg" alt="" width="250" height="<?php echo $h; ?>" />
+			   		<img class="imgover" src="img/mouseover.jpg" alt="" width="250" height="<?php echo $h; ?>" />
+			   		<p class="caption"><a class="caption-link" href="#">voir plus</a></p>
+			   	</div>
+			   	<?php endfor; ?>
+		    </div>

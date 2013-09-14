@@ -1,12 +1,32 @@
-			<div id="masonry-bloc">
-		    	<div class="banner bloc">
-		    		<img id="img" src="./img/item.jpg" alt="" width="350" height="714" />
-		    	</div>
-			   	<?php $cats = array('bijoux','objet','papeterie'); for ($i=0 ; $i<20; $i++): $h = rand(150,300); ?>
-			   	<div class="bloc <?php echo $cats[$i%3];?>">
-			   		<img id="img" src="./img/item.jpg" alt="" width="350" height="<?php echo $h; ?>" />
-			   		<img class="imgover" src="img/mouseover.jpg" alt="" width="350" height="<?php echo $h; ?>" />
-			   		<p class="caption"><a class="caption-link" href="#">voir plus</a></p>
-			   	</div>
-			   	<?php endfor; ?>
+			<div id="index">
+				<?php echo $this->productData['nomProduit']; echo $this->productData['descProduit'] ?>
+				<div id="masonry-bloc">
+					<div>
+				    	<div class="bloc">
+				    		<img id="img" src="./img/item.jpg" alt="" width="350" height="400" />
+				    	</div>
+				    	<div class="bloc">
+				    		<img id="img" src="./img/item.jpg" alt="" width="350" height="400" />
+				    	</div>
+				    	<div class="bloc">
+				    		<img id="img" src="./img/item.jpg" alt="" width="350" height="400" />
+				    	</div>
+			    	</div>
+			    	<div>
+				    	<div class="banner bloc">
+				    		<img id="img" src="./img/item.jpg" alt="" width="1070" height="400" />
+				    	</div>
+			    	</div>
+			    	<div>
+				    	<div class="bloc">
+				    		<img id="img" src="./img/item.jpg" alt="" width="350" height="300" />
+				    	</div>
+				    	<div class="bloc">
+				    		<img id="img" src="./img/item.jpg" alt="" width="350" height="300" />
+				    	</div>
+				    	<div class="bloc">
+				    		<img id="img" src="./img/item.jpg" alt="" width="350" height="300" />
+				    	</div>
+			    	</div>
+			    </div>
 		    </div>

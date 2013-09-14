@@ -4,6 +4,7 @@ define('DS', DIRECTORY_SEPARATOR);
 define('ROOT_PATH', dirname(__DIR__));
 define('APP_PATH', ROOT_PATH . DS . 'application');
 define('VIEW_PATH', APP_PATH . DS . 'view');
+define('MOD_PATH', APP_PATH . DS . 'model');
 define('LIB_PATH', ROOT_PATH . DS . 'library');
 define('PUB_PATH', __DIR__);
 
@@ -23,7 +24,10 @@ require_once LIB_PATH . DS . 'Dispatcher.php';
 require_once LIB_PATH . DS . 'ControllerInterface.php';
 require_once LIB_PATH . DS . 'View.php';
 require_once LIB_PATH . DS . 'Controller.php';
-require_once LIB_PATH . DS . 'Db.php';
+
+// Chargement des classes model
+require_once MOD_PATH . DS . 'Connect.php';
+require_once MOD_PATH . DS . 'Product.php';
 
 // Instanciation des classes
 $request = Request::getInstance();
@@ -32,7 +36,10 @@ $dispatcher = new Dispatcher();
 $view = new View();
 $response = new Response();
 
-$db = new Db($db);
+//////// AUTRES OBJETS
+// Connect db
+$connect = new Connect($db);
+$product = new Product($connect);
 
 //////// PROCESS APPLI
 // 1. Récupération de l'url
@@ -46,6 +53,7 @@ $router->route();
 $dispatcher->setRequest($request);
 $dispatcher->setResponse($response);
 $dispatcher->setView($view);
+$dispatcher->setProduct($product);
 $dispatcher->dispatch();
 
 // 4. View - Formatage du nom et appel des fichiers de la vue et intégration dans le layout
@@ -53,10 +61,6 @@ $viewName = strtolower($request->getControllerName() . '.phtml');
 $view->setLayout('layout.phtml');
 $page = $view->renderPage($viewName);
 $fullpage = $view->renderLayout($page);
-
 // 5. Response - Transmission de la page complète assemblée pour affichage
 $response->setBody($fullpage);
 $response->send();
-
-//////// AUTRES OBJETS
-// 
