@@ -1,12 +1,21 @@
 <div id="masonry-bloc">
-		    	<div class="banner bloc">
-		    		<img id="img" src="./img/item.jpg" alt="" width="250" height="714" />
-		    	</div>
-			   	<?php $cats = array('bijoux','objet','papeterie'); for ($i=0 ; $i<20; $i++): $h = rand(150,300); ?>
-			   	<div class="bloc <?php echo $cats[$i%3];?>">
-			   		<img id="img" src="./img/item.jpg" alt="" width="250" height="<?php echo $h; ?>" />
-			   		<img class="imgover" src="img/mouseover.jpg" alt="" width="250" height="<?php echo $h; ?>" />
-			   		<p class="caption"><a class="caption-link" href="#">voir plus</a></p>
-			   	</div>
-			   	<?php endfor; ?>
-		    </div>
+	<!-- <div class="banner bloc">
+		<img id="img" src="./img/item.jpg" alt="" width="250" height="714" />
+	</div> -->
+	
+	<?php for($i=0, $nbMax=$this->nbProduct['nbProduit'] ; $i<=$nbMax-1 ; $i++):?>
+		<div class="bloc" style="border: 1px solid black; margin: 5px; width: 200px; height: 100px;">
+			<p><?php echo htmlentities($this->productData[$i][1])?></p>
+			<p><?php echo htmlentities($this->productData[$i][2])?></p>
+			<p><?php echo htmlentities($this->productData[$i][3])?> €</p>
+		</div>
+	<?php endfor;?>
+	
+	<!-- <?php $cats = array('bijoux','objet','papeterie'); for ($i=0 ; $i<20; $i++): $h = rand(150,300); ?>
+	<div class="bloc <?php echo $cats[$i%3];?>">
+		<img id="img" src="./img/item.jpg" alt="" width="250" height="<?php echo $h; ?>" />
+		<img class="imgover" src="img/mouseover.jpg" alt="" width="250" height="<?php echo $h; ?>" />
+		<p class="caption"><a class="caption-link" href="#">voir plus</a></p>
+	</div>
+	<?php endfor; ?> -->
+</div>
