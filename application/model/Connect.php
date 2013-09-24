@@ -31,7 +31,7 @@ class Connect
 				$this->config['base']
 				);
 		if(!$link){
-			throw new ErrorException('Connexion à la base de donnée impossible');
+			throw new ErrorException('Connexion à la base de données impossible');
 		}
 		
 		$this->connected = true;
@@ -47,12 +47,11 @@ class Connect
 	{
 		if(!$this->connected){
 			$this->connect();
+		}
 			$query = htmlspecialchars(stripslashes($query));
 			$query = mysqli_real_escape_string($this->connection, $query);
 			$req = mysqli_query($this->connection, $query);
-			var_dump($req);
 			return $req;
-		}
 	}
 	
 }

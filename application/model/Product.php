@@ -21,11 +21,9 @@ class Product
 	}
 	
 	public function nbProduct(){
-		$req = $this->connect->query('SELECT COUNT(idProduit) FROM produits');
-		var_dump($req);
-		die();
+		$req = $this->connect->query('SELECT COUNT(idproduit) AS nbProduit FROM produits');
 		$nbProduct = mysqli_fetch_array($req);
-		print_r($nbProduct);
+		return $nbProduct;
 	}
 
 }

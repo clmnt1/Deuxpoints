@@ -1,5 +1,10 @@
 			<div id="index">
-				<?php echo $this->productData['nomProduit']; echo $this->productData['descProduit'] ?>
+				<?php echo $this->productData['nomProduit']; echo $this->productData['descProduit']; echo $this->nbProduct['nbProduit'] ?>
+				<?php for($i=0, $nbMax=$this->nbProduct['nbProduit'] ; $i<=$this->nbProduct['nbProduit'] ; $i++){
+					echo $i;
+				}
+					
+					?>
 				<div id="masonry-bloc">
 					<div>
 				    	<div class="bloc">
