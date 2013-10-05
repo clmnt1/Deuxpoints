@@ -49,7 +49,6 @@ class Connect
 			$this->connect();
 		}
 			$query = htmlspecialchars(stripslashes($query));
-			$query = mysqli_real_escape_string($this->connection, $query);
 			$req = mysqli_query($this->connection, $query);
 			return $req;
 	}

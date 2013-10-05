@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 define('DS', DIRECTORY_SEPARATOR);
 define('ROOT_PATH', dirname(__DIR__));
 define('APP_PATH', ROOT_PATH . DS . 'application');
@@ -28,6 +30,7 @@ require_once LIB_PATH . DS . 'Controller.php';
 // Chargement des classes model
 require_once MOD_PATH . DS . 'Connect.php';
 require_once MOD_PATH . DS . 'Product.php';
+require_once MOD_PATH . DS . 'Authentification.php';
 
 // Instanciation des classes
 $request = Request::getInstance();
@@ -53,7 +56,7 @@ $router->route();
 $dispatcher->setRequest($request);
 $dispatcher->setResponse($response);
 $dispatcher->setView($view);
-$dispatcher->setProduct($product);
+$dispatcher->setConnection($connect);
 $dispatcher->dispatch();
 
 // 4. View - Formatage du nom et appel des fichiers de la vue et intégration dans le layout

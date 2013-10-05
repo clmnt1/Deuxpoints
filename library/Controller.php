@@ -10,12 +10,12 @@ abstract class Controller implements ControllerInterface
 	protected $description = 'description';
 	protected $keywords = 'mots clés';
 	
-	public function __construct(Request $request, Response $response, View $view, Product $product)
+	public function __construct(Request $request, Response $response, View $view, Connect $connection)
 	{
 		$this->request = $request;
 		$this->response = $response;
 		$this->view = $view;
-		$this->product = $product;
+		$this->connection = $connection;
 	}
 	
 }
