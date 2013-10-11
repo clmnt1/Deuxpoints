@@ -1,2 +1,39 @@
 <p>Bonjour <?php echo $_SESSION['login'] ?> joli coeur !</p>
-<a href="/nousauth?adminauth=false">Déconnexion</a>
+<a href="/nousauth?adminauth=disconnect">Déconnexion</a>
+<h2>Liste des produits</h2>
+<?php for($i=0, $nbMax=$this->nbProduct['nbProduit'] ; $i<=$nbMax-1 ; $i++):?>
+	<form action="#" method="POST">
+		<div class="<?php echo ($this->productData[$i][5]) ?>" style="border: 1px solid black; margin: 5px; width: 200px;">
+			<label for="modTitle">Nom</label>
+			<input type="text" name="modTitle" value="<?php echo htmlentities($this->productData[$i][1])?>" />
+			<label for="modDesc">Desc.</label>
+			<textarea name="modDesc"><?php echo htmlentities($this->productData[$i][2])?></textarea>
+			<label for="modPrice">Prix</label>
+			<input type="text" name="modPrice" value="<?php echo htmlentities($this->productData[$i][3])?>" /> €
+			<label for="modQte">Qté</label>
+			<input type="text" name="modQte" value="<?php echo htmlentities($this->productData[$i][4])?>" />
+			<label for="modType">Catégorie</label>
+			<input type="text" name="modType" value="<?php echo htmlentities($this->productData[$i][5])?>" />
+		</div>
+		<div class="delete-product">
+			<label for="delete-product">Suppr.</label>
+			<input type="checkbox" name="delete-product">
+			<button type="submit" name="mod" value="<?php echo $this->productData[$i][0] ?>">Modifier</button>
+		</div>
+	</form>
+<?php endfor;?>
+<?php if(isset($this->message) && !empty($this->message)){echo $this->message;} ?>
+<a class="link-add-product" href="#">Ajouter un produit</a>
+<div class="form-add-product">
+	<form action="#" method="post" enctype="multipart/form-data">
+		<input type="text" name="addTitle" placeholder="Titre" />
+		<textarea name="addDesc">
+		</textarea>
+		<input type="text" name="addQte" placeholder="Quantité" />
+		<input type="text" name="addPrice" placeholder="Prix" />
+		<input type="text" name="addType" placeholder="Type" />
+		<input type="hidden" name="MAX_FILE_SIZE" value="100000">
+     	Fichier : <input type="file" name="avatar">
+		<input type="submit" name="add" value="Ajouter" />
+	</form>
+</div>

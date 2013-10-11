@@ -26,11 +26,13 @@ require_once LIB_PATH . DS . 'Dispatcher.php';
 require_once LIB_PATH . DS . 'ControllerInterface.php';
 require_once LIB_PATH . DS . 'View.php';
 require_once LIB_PATH . DS . 'Controller.php';
+require_once LIB_PATH . DS . 'Message.php';
 
 // Chargement des classes model
 require_once MOD_PATH . DS . 'Connect.php';
 require_once MOD_PATH . DS . 'Product.php';
 require_once MOD_PATH . DS . 'Authentification.php';
+require_once MOD_PATH . DS . 'Upload.php';
 
 // Instanciation des classes
 $request = Request::getInstance();
@@ -42,7 +44,7 @@ $response = new Response();
 //////// AUTRES OBJETS
 // Connect db
 $connect = new Connect($db);
-$product = new Product($connect);
+$message = new Message();
 
 //////// PROCESS APPLI
 // 1. Récupération de l'url
@@ -57,6 +59,7 @@ $dispatcher->setRequest($request);
 $dispatcher->setResponse($response);
 $dispatcher->setView($view);
 $dispatcher->setConnection($connect);
+$dispatcher->setMessage($message);
 $dispatcher->dispatch();
 
 // 4. View - Formatage du nom et appel des fichiers de la vue et intégration dans le layout

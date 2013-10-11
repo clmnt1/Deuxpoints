@@ -27,6 +27,11 @@ class Dispatcher{
 		$this->connection = $connection;
 	}
 	
+	public function setMessage(Message $message)
+	{
+		$this->message = $message;
+	}
+	
 	public function dispatch(){
 		$controllerName = $this->request->getControllerName();
 		$controllerClassname = ucfirst($controllerName) . 'Controller';
@@ -34,7 +39,7 @@ class Dispatcher{
 		
 		// Instancie le controller
 		require_once APP_PATH . DS . 'controller' . DS . $controllerFilename;
-		$controller = new $controllerClassname($this->request, $this->response, $this->view, $this->connection); // Instancie une class dont le nom est contenu dans une variable. Ici, $controllerClassname() = .
+		$controller = new $controllerClassname($this->request, $this->response, $this->view, $this->connection, $this->message); // Instancie une class dont le nom est contenu dans une variable. Ici, $controllerClassname() = .
 		$controller->process();
 	}
 	

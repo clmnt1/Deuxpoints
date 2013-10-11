@@ -21,14 +21,14 @@ class Authentification
 		$this->connected = $connected;
 	}
 	
-	public function checkAuth(array $params){
+	public function checkAuth(array $params, $table, $dest){
 		sleep(2);
 		if($params){
-		$sqlAuth = "SELECT *,(CASE WHEN admin_password = '". $params['password'] . "' THEN 1 ELSE 0 END) AS result FROM admins WHERE admin_login = '" . $params['login'] . "';";
+		$sqlAuth = "SELECT *,(CASE WHEN password_admin = '". $params['password'] . "' THEN 1 ELSE 0 END) AS result FROM " . $table . " WHERE login_admin = '" . $params['login'] . "';";
 		if($req = $this->connect->query($sqlAuth)){
 			$_SESSION['login'] = $params['login'];
 			$_SESSION['adminauth'] = true;
-			header("location:/nous");
+			header("location:/" . $dest);
 		}
 		/*$reqAuth = $connexion->prepare($sqlAuth);
 		$reqAuth->execute($params);
